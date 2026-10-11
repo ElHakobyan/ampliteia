@@ -187,6 +187,26 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   50% { translate: 0 -12px; }
 }
 
+/* ---------- About ---------- */
+.about { padding: 110px clamp(20px, 6.5vw, 76px); background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
+.about-inner { max-width: 1100px; margin: 0 auto; }
+.about-title { display: block; font-size: clamp(34px, 4.6vw, 56px); font-weight: 600; letter-spacing: -.02em; line-height: 1.1; margin: 0 0 36px; }
+.about-text { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 48px; font-size: clamp(16px, 1.4vw, 18px); font-weight: 300; color: #e7e1ff; }
+.about-sub { margin: 64px 0 24px; font-size: 14px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: #cba8ff; }
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.principle {
+  padding: 26px 22px; border-radius: 18px;
+  background: linear-gradient(160deg, rgba(120, 90, 255, .14), rgba(60, 30, 170, .06));
+  border: 1px solid var(--line); transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.principle:hover { transform: translateY(-4px); border-color: rgba(170, 140, 255, .6); box-shadow: 0 10px 40px rgba(110, 70, 255, .25); }
+.principle h4 { font-size: 18px; font-weight: 600; line-height: 1.25; margin-bottom: 10px; }
+.principle p { color: var(--muted); font-size: 14.5px; font-weight: 300; }
+.about-cta { margin-top: 64px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  padding: 28px 32px; border-radius: 20px; border: 1px solid var(--line);
+  background: linear-gradient(135deg, rgba(120, 70, 255, .2), rgba(60, 30, 170, .08)); }
+.about-cta p { font-size: clamp(18px, 2vw, 24px); font-weight: 500; }
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 34px clamp(20px, 5vw, 56px) 28px;
@@ -209,6 +229,8 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .about-text { grid-template-columns: 1fr; }
+  .principles { grid-template-columns: repeat(2, 1fr); }
   .main-nav { display: none; }
   .btn-cta span { display: none; }
   .btn-cta { padding: 12px 14px; }
@@ -218,6 +240,7 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   .foot-nav { margin: 0 auto 0 0; }
 }
 @media (max-width: 560px) {
+  .principles { grid-template-columns: 1fr; }
   .brand svg { width: 118px; }
   .foot-bottom { flex-direction: column; }
 }

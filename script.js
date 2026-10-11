@@ -71,14 +71,20 @@
     });
   });
 
-  // ---------- Active nav link on scroll (Home / Contacts) ----------
-  var homeLink = document.querySelector('.main-nav a[href="#top"]');
-  var contactsLink = document.querySelector('.main-nav a[href="#contacts"]');
-  var footer = document.getElementById("contacts");
+  // ---------- Active nav link on scroll (Home / About / Contacts) ----------
+  var navLinks = {
+    top: document.querySelector('.main-nav a[href="#top"]'),
+    about: document.querySelector('.main-nav a[href="#about"]'),
+    contacts: document.querySelector('.main-nav a[href="#contacts"]')
+  };
+  var aboutEl = document.getElementById("about");
+  var footerEl = document.getElementById("contacts");
   function onScroll() {
-    var atFooter = footer && window.scrollY + window.innerHeight * 0.6 >= footer.offsetTop;
-    homeLink.classList.toggle("active", !atFooter);
-    contactsLink.classList.toggle("active", !!atFooter);
+    var y = window.scrollY + window.innerHeight * 0.45;
+    var cur = "top";
+    if (aboutEl && y >= aboutEl.offsetTop) cur = "about";
+    if (footerEl && y >= footerEl.offsetTop) cur = "contacts";
+    Object.keys(navLinks).forEach(function (k) { navLinks[k].classList.toggle("active", k === cur); });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
