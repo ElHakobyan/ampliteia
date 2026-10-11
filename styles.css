@@ -161,7 +161,7 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
 /* ---------- Services ---------- */
 .services { padding: 110px clamp(20px, 6.5vw, 76px); background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
 .services h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; letter-spacing: -.01em; margin-bottom: 36px; }
-.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; counter-reset: svc; }
 .card {
   padding: 28px 24px; border-radius: 18px;
   background: linear-gradient(160deg, rgba(120, 90, 255, .14), rgba(60, 30, 170, .06));
@@ -169,7 +169,12 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   transition: transform .25s, border-color .25s, box-shadow .25s;
 }
 .card:hover { transform: translateY(-4px); border-color: rgba(170, 140, 255, .6); box-shadow: 0 10px 40px rgba(110, 70, 255, .25); }
-.card h3 { font-size: 19px; font-weight: 600; margin-bottom: 10px; }
+.card { counter-increment: svc; }
+.card::before {
+  content: "0" counter(svc); display: block; margin-bottom: 14px;
+  font-size: 13px; letter-spacing: .2em; color: #cba8ff; font-weight: 500;
+}
+.card h3 { font-size: clamp(18px, 1.7vw, 22px); font-weight: 600; margin-bottom: 10px; line-height: 1.25; }
 .card p { color: var(--muted); font-size: 15px; font-weight: 300; }
 
 /* ---------- Footer ---------- */
@@ -200,7 +205,6 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   .stage { position: relative; right: auto; top: auto; width: min(92vw, 520px); margin: 40px auto 0; }
   .hero { align-content: center; padding-top: 110px; padding-bottom: 60px; }
   .hero-copy { margin-top: 0; }
-  .cards { grid-template-columns: repeat(2, 1fr); }
   .foot-nav { margin: 0 auto 0 0; }
 }
 @media (max-width: 560px) {

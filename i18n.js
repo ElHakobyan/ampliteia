@@ -11,6 +11,10 @@ window.I18N = {
     "svc.analyze": "Turn your data into clear, actionable insights.",
     "svc.scale": "Handle more customers and projects without more overhead.",
     "svc.grow": "Measurable results that move your business forward.",
+    "svc.t1": "AI Readiness & Data Foundations", "svc.d1": "We audit your processes and data, fix the gaps and build a clear roadmap for your first AI projects.",
+    "svc.t2": "AI Agents for Back-Office Operations", "svc.d2": "AI agents that handle finance, logistics and claims end to end, with people in the loop for exceptions.",
+    "svc.t3": "Legacy Systems Modernization with AI", "svc.d3": "Move old systems and manual processes to modern, AI-enabled platforms without stopping the business.",
+    "svc.t4": "AI Governance & EU AI Act Compliance", "svc.d4": "Risk classification, policies, documentation and controls, so your AI is compliant and audit-ready.",
     "foot.about": "About",
     "foot.rights": "© 2026 Ampliteia. All rights reserved.",
     "foot.privacy": "Privacy Policy", "foot.terms": "Terms of Service"
@@ -27,6 +31,10 @@ window.I18N = {
     "svc.analyze": "Превращайте данные в понятные и полезные выводы.",
     "svc.scale": "Обслуживайте больше клиентов и проектов без лишних затрат.",
     "svc.grow": "Измеримые результаты, которые двигают бизнес вперёд.",
+    "svc.t1": "ИИ-готовность и работа с данными", "svc.d1": "Проводим аудит процессов и данных, устраняем пробелы и строим понятную дорожную карту первых ИИ-проектов.",
+    "svc.t2": "ИИ-агенты для бэк-офиса", "svc.d2": "ИИ-агенты ведут финансы, логистику и страховые случаи от начала до конца, а люди подключаются только к исключениям.",
+    "svc.t3": "Модернизация legacy-систем с помощью ИИ", "svc.d3": "Переводим устаревшие системы и ручные процессы на современные платформы с ИИ без остановки бизнеса.",
+    "svc.t4": "ИИ-governance и соответствие EU AI Act", "svc.d4": "Классификация рисков, политики, документация и контроли: ваш ИИ соответствует требованиям и готов к аудиту.",
     "foot.about": "О нас",
     "foot.rights": "© 2026 Ampliteia. Все права защищены.",
     "foot.privacy": "Политика конфиденциальности", "foot.terms": "Условия использования"
@@ -43,6 +51,10 @@ window.I18N = {
     "svc.analyze": "Ձեր տվյալները դարձրեք հստակ և օգտակար եզրակացություններ։",
     "svc.scale": "Սպասարկեք ավելի շատ հաճախորդների և նախագծերի՝ առանց ավելորդ ծախսերի։",
     "svc.grow": "Չափելի արդյունքներ, որոնք առաջ են մղում ձեր բիզնեսը։",
+    "svc.t1": "ԱԲ պատրաստվածություն և տվյալների հիմք", "svc.d1": "Աուդիտ ենք անցկացնում ձեր գործընթացների և տվյալների վրա, վերացնում բացերը և կազմում առաջին ԱԲ նախագծերի հստակ ճանապարհային քարտեզ։",
+    "svc.t2": "ԱԲ գործակալներ բեք-օֆիսի համար", "svc.d2": "ԱԲ գործակալները սկզբից մինչև վերջ կատարում են ֆինանսական, լոգիստիկ և ապահովագրական գործընթացները, իսկ մարդիկ միանում են միայն բացառիկ դեպքերում։",
+    "svc.t3": "Հին համակարգերի արդիականացում ԱԲ-ով", "svc.d3": "Հնացած համակարգերն ու ձեռքով գործընթացները տեղափոխում ենք ժամանակակից ԱԲ հարթակներ՝ առանց բիզնեսը կանգնեցնելու։",
+    "svc.t4": "ԱԲ կառավարում և EU AI Act-ի համապատասխանություն", "svc.d4": "Ռիսկերի դասակարգում, քաղաքականություններ, փաստաթղթեր և վերահսկողություն՝ ձեր ԱԲ-ն համապատասխանում է պահանջներին և պատրաստ է աուդիտի։",
     "foot.about": "Մեր մասին",
     "foot.rights": "© 2026 Ampliteia։ Բոլոր իրավունքները պաշտպանված են։",
     "foot.privacy": "Գաղտնիության քաղաքականություն", "foot.terms": "Օգտագործման պայմաններ"
@@ -59,6 +71,10 @@ window.I18N = {
     "svc.analyze": "Convierte tus datos en información clara y útil.",
     "svc.scale": "Atiende a más clientes y proyectos sin aumentar los costes.",
     "svc.grow": "Resultados medibles que impulsan tu negocio.",
+    "svc.t1": "Preparación para IA y base de datos", "svc.d1": "Auditamos tus procesos y datos, corregimos las carencias y creamos una hoja de ruta clara para tus primeros proyectos de IA.",
+    "svc.t2": "Agentes de IA para operaciones de back-office", "svc.d2": "Agentes de IA que gestionan finanzas, logística y siniestros de principio a fin, con personas para las excepciones.",
+    "svc.t3": "Modernización de sistemas heredados con IA", "svc.d3": "Llevamos sistemas antiguos y procesos manuales a plataformas modernas con IA sin detener el negocio.",
+    "svc.t4": "Gobernanza de IA y cumplimiento del EU AI Act", "svc.d4": "Clasificación de riesgos, políticas, documentación y controles para que tu IA cumpla la normativa y esté lista para auditoría.",
     "foot.about": "Nosotros",
     "foot.rights": "© 2026 Ampliteia. Todos los derechos reservados.",
     "foot.privacy": "Política de privacidad", "foot.terms": "Términos del servicio"
