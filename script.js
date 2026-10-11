@@ -1,4 +1,10 @@
 (function () {
+  // Where consultation requests are sent. Paste your form-service URL here
+  // (e.g. "https://formspree.io/f/XXXXXXXX"). While empty, the form falls back
+  // to opening an email to CONTACT_EMAIL.
+  var FORM_ENDPOINT = "";
+  var CONTACT_EMAIL = "hello@ampliteia.com";
+
   // ---------- Language switcher ----------
   var STORAGE_KEY = "ampliteia.lang";
   var btn = document.getElementById("langBtn");
@@ -22,6 +28,11 @@
       var key = el.getAttribute("data-i18n");
       if (dict[key]) el.textContent = dict[key];
     });
+    document.querySelectorAll("[data-i18n-ph]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-ph");
+      if (dict[key]) el.setAttribute("placeholder", dict[key]);
+    });
+    window.__dict = dict;
     flagEl.src = dict.flag;
     codeEl.textContent = dict.code;
     menu.querySelectorAll("li").forEach(function (li) {
@@ -79,15 +90,73 @@
   };
   var aboutEl = document.getElementById("about");
   var footerEl = document.getElementById("contacts");
+  var consultEl = document.getElementById("consultation");
   function onScroll() {
     var y = window.scrollY + window.innerHeight * 0.45;
     var cur = "top";
     if (aboutEl && y >= aboutEl.offsetTop) cur = "about";
+    if (consultEl && y >= consultEl.offsetTop) cur = "contacts";
     if (footerEl && y >= footerEl.offsetTop) cur = "contacts";
     Object.keys(navLinks).forEach(function (k) { navLinks[k].classList.toggle("active", k === cur); });
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
+
+  // ---------- Consultation form ----------
+  var form = document.getElementById("consultForm");
+  var errEl = document.getElementById("consultErr");
+  var doneEl = document.getElementById("consultDone");
+  var sendBtn = document.getElementById("consultBtn");
+  function tr(key) { return (window.__dict && window.__dict[key]) || ""; }
+
+  function showError(msg) { errEl.textContent = msg; errEl.hidden = false; }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    errEl.hidden = true;
+    if (form.elements._gotcha.value) return;            // spam trap
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      showError(tr("cons.req"));
+      return;
+    }
+    var data = {
+      name: form.elements.name.value.trim(),
+      email: form.elements.email.value.trim(),
+      company: form.elements.company.value.trim(),
+      need: form.elements.need.value,
+      message: form.elements.message.value.trim(),
+      language: document.documentElement.lang,
+      page: location.href
+    };
+
+    if (!FORM_ENDPOINT) {                                // fallback: open the mail app
+      var body = "Name: " + data.name + "\nEmail: " + data.email + "\nCompany: " + data.company +
+                 "\nNeed: " + data.need + "\nLanguage: " + data.language + "\n\n" + data.message;
+      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" +
+        encodeURIComponent("Consultation request: " + data.name) + "&body=" + encodeURIComponent(body);
+      errEl.classList.remove("err"); errEl.classList.add("info");
+      showError(tr("cons.fallback"));
+      return;
+    }
+
+    errEl.classList.remove("info"); errEl.classList.add("err");
+    var label = sendBtn.querySelector("span");
+    var oldLabel = label.textContent;
+    sendBtn.disabled = true; label.textContent = tr("cons.sending");
+    fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    }).then(function (r) {
+      if (!r.ok) throw new Error("bad status " + r.status);
+      form.hidden = true; doneEl.hidden = false;
+    }).catch(function () {
+      showError(tr("cons.err"));
+    }).then(function () {
+      sendBtn.disabled = false; label.textContent = oldLabel;
+    });
+  });
 
   // ---------- Particle / flow-line background ----------
   var canvas = document.getElementById("fx");

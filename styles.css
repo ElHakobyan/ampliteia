@@ -207,6 +207,52 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   background: linear-gradient(135deg, rgba(120, 70, 255, .2), rgba(60, 30, 170, .08)); }
 .about-cta p { font-size: clamp(18px, 2vw, 24px); font-weight: 500; }
 
+/* ---------- Consultation ---------- */
+.consult { padding: 110px clamp(20px, 6.5vw, 76px); background: radial-gradient(90% 70% at 85% 20%, rgba(105, 60, 255, .22), transparent 60%), var(--bg-2); border-top: 1px solid rgba(255, 255, 255, .05); }
+.consult-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.consult-title { display: block; font-size: clamp(30px, 3.8vw, 46px); font-weight: 600; letter-spacing: -.02em; line-height: 1.12; margin-bottom: 20px; }
+.consult-lead { font-size: clamp(16px, 1.4vw, 18px); font-weight: 300; color: #e7e1ff; max-width: 30em; }
+.ticks { margin: 28px 0; display: grid; gap: 14px; }
+.ticks li { display: flex; align-items: center; gap: 12px; font-size: 15.5px; }
+.ticks svg { width: 20px; height: 20px; flex: none; color: #b9a2ff; filter: drop-shadow(0 0 6px rgba(150, 110, 255, .8)); }
+.consult-mail { font-size: 15.5px; color: var(--violet-2); border-bottom: 1px solid rgba(169, 139, 255, .4); padding-bottom: 2px; }
+.consult-mail:hover { color: #fff; border-color: #fff; }
+
+.consult-card {
+  padding: clamp(22px, 3vw, 34px); border-radius: 22px;
+  background: linear-gradient(160deg, rgba(120, 90, 255, .16), rgba(60, 30, 170, .07));
+  border: 1px solid rgba(170, 140, 255, .35);
+  box-shadow: 0 0 50px rgba(110, 70, 255, .18), inset 0 0 30px rgba(160, 120, 255, .08);
+  backdrop-filter: blur(8px);
+}
+.consult-card form { display: grid; gap: 16px; }
+.consult-card form[hidden], .consult-done[hidden], .form-msg[hidden] { display: none; }
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.field { display: grid; gap: 7px; font-size: 13.5px; color: #d9d2f7; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 15px; color: #fff;
+  background: rgba(8, 5, 28, .65); border: 1px solid rgba(160, 130, 255, .28); border-radius: 12px;
+  padding: 12px 14px; outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { resize: vertical; min-height: 110px; }
+.field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c9b8ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 18px; padding-right: 40px; }
+.field select option { background: #0e0a2a; color: #fff; }
+.field input::placeholder, .field textarea::placeholder { color: rgba(220, 210, 250, .4); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #9a6bff; box-shadow: 0 0 0 3px rgba(130, 90, 255, .28); }
+.field input:user-invalid, .field select:user-invalid { border-color: #ff7a9a; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.check { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: #cfc6f5; cursor: pointer; }
+.check input { margin-top: 3px; width: 16px; height: 16px; accent-color: #8d5cff; flex: none; }
+.btn-block { width: 100%; justify-content: center; cursor: pointer; font-family: inherit; color: #fff; }
+.btn-block:disabled { opacity: .65; cursor: progress; }
+.form-msg { font-size: 13.5px; }
+.form-msg.err { color: #ff9db3; }
+.form-msg.info { color: #cbbcff; }
+.consult-done { text-align: center; padding: 30px 10px; }
+.consult-done svg { width: 54px; height: 54px; margin: 0 auto 16px; color: #b9a2ff; filter: drop-shadow(0 0 12px rgba(150, 110, 255, .8)); }
+.consult-done h3 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
+.consult-done p { color: var(--muted); }
+
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 34px clamp(20px, 5vw, 56px) 28px;
@@ -231,6 +277,7 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
 
 /* ---------- Responsive ---------- */
 @media (max-width: 960px) {
+  .consult-inner { grid-template-columns: 1fr; }
   .about-text { grid-template-columns: 1fr; }
   .principles { grid-template-columns: repeat(2, 1fr); }
   .main-nav { display: none; }
@@ -242,6 +289,7 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   .foot-nav { margin: 0 auto 0 0; }
 }
 @media (max-width: 560px) {
+  .row2 { grid-template-columns: 1fr; }
   .principles { grid-template-columns: 1fr; }
   .brand svg { width: 118px; }
   .foot-bottom { flex-direction: column; }

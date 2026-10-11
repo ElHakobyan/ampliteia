@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -55,7 +55,7 @@
   </nav>
 
   <div class="header-actions">
-    <a class="btn-cta" href="#contacts">
+    <a class="btn-cta" href="#consultation">
       <span data-i18n="cta">Get a Consultation</span>
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -137,8 +137,60 @@
 
       <div class="about-cta">
         <p data-i18n="about.cta">Let's talk about your first AI project</p>
-        <a class="btn-cta" href="#contacts"><span data-i18n="cta">Get a Consultation</span>
+        <a class="btn-cta" href="#consultation"><span data-i18n="cta">Get a Consultation</span>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </section>
+  <section class="consult" id="consultation">
+    <div class="consult-inner">
+      <div class="consult-copy">
+        <p class="eyebrow" data-i18n="cons.eyebrow">Free consultation</p>
+        <h2 class="consult-title grad" data-i18n="cons.title">Let's talk about your first AI project</h2>
+        <p class="consult-lead" data-i18n="cons.lead">Tell us about your business. We'll reply within 1 hour with next steps.</p>
+        <ul class="ticks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="cons.b2">No obligations</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="cons.b3">Reply within 1 hour</span></li>
+        </ul>
+        <a class="consult-mail" href="mailto:hello@ampliteia.com">hello@ampliteia.com</a>
+      </div>
+
+      <div class="consult-card">
+        <form id="consultForm" novalidate>
+          <div class="row2">
+            <label class="field"><span data-i18n="cons.f.name">Name</span>
+              <input type="text" name="name" autocomplete="name" required></label>
+            <label class="field"><span data-i18n="cons.f.email">Work email</span>
+              <input type="email" name="email" autocomplete="email" required></label>
+          </div>
+          <label class="field"><span data-i18n="cons.f.company">Company (optional)</span>
+            <input type="text" name="company" autocomplete="organization"></label>
+          <label class="field"><span data-i18n="cons.f.need">What do you need?</span>
+            <select name="need" required>
+              <option value="" data-i18n="cons.o.pick">Select an option</option>
+              <option value="AI Readiness & Data Foundations" data-i18n="svc.t1">AI Readiness &amp; Data Foundations</option>
+              <option value="AI Agents for Back-Office Operations" data-i18n="svc.t2">AI Agents for Back-Office Operations</option>
+              <option value="Legacy Systems Modernization with AI" data-i18n="svc.t3">Legacy Systems Modernization with AI</option>
+              <option value="AI Governance & EU AI Act Compliance" data-i18n="svc.t4">AI Governance &amp; EU AI Act Compliance</option>
+              <option value="Not sure yet" data-i18n="cons.o.unsure">Not sure yet</option>
+            </select></label>
+          <label class="field"><span data-i18n="cons.f.msg">Message</span>
+            <textarea name="message" rows="4" data-i18n-ph="cons.f.msg.ph" placeholder="Tell us a bit about your project"></textarea></label>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hp" aria-hidden="true">
+          <label class="check"><input type="checkbox" name="consent" required>
+            <span data-i18n="cons.consent">I agree to the processing of my data to receive a reply.</span></label>
+          <button class="btn-cta btn-block" type="submit" id="consultBtn">
+            <span data-i18n="cons.send">Send request</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <p class="form-msg err" id="consultErr" role="alert" hidden></p>
+        </form>
+
+        <div class="consult-done" id="consultDone" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 12.5l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 id="doneTitle" data-i18n="cons.ok.t">Thank you!</h3>
+          <p id="doneText" data-i18n="cons.ok.d">We've received your request and will reply within 1 hour.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -171,7 +223,7 @@
   </div>
 </footer>
 
-<script src="i18n.js?v=7"></script>
-<script src="script.js?v=7"></script>
+<script src="i18n.js?v=9"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>
