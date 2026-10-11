@@ -34,16 +34,6 @@ img, svg { display: block; }
   justify-self: center;
   display: flex; gap: clamp(18px, 2.8vw, 42px);
 }
-.main-nav a {
-  position: relative; font-size: 15px; font-weight: 400; padding: 6px 0;
-  color: #f1edff; opacity: .9; transition: opacity .2s;
-}
-.main-nav a:hover { opacity: 1; }
-.main-nav a.active::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; border-radius: 2px;
-  background: linear-gradient(90deg, #8d5cff, #c9a9ff);
-  box-shadow: 0 0 10px rgba(150, 100, 255, .9);
-}
 .header-actions { display: flex; align-items: center; gap: 14px; }
 
 .btn-cta {
@@ -82,6 +72,46 @@ img, svg { display: block; }
 }
 .lang-menu li:hover { background: rgba(130, 90, 255, .22); }
 .lang-menu li[aria-selected="true"] { background: rgba(130, 90, 255, .32); }
+
+/* Nav links, hover underline and Services dropdown */
+.nav-link {
+  position: relative; display: inline-flex; align-items: center; gap: 6px;
+  font-size: 15px; font-weight: 400; padding: 6px 0; color: #f1edff; opacity: .9; transition: opacity .2s;
+}
+.nav-link:hover, .has-dd:hover > .nav-link, .has-dd:focus-within > .nav-link { opacity: 1; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: -4px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, #8d5cff, #c9a9ff); box-shadow: 0 0 10px rgba(150, 100, 255, .9);
+  transform: scaleX(0); transform-origin: left; transition: transform .25s ease;
+}
+.nav-link.active::after,
+.nav-link:hover::after,
+.has-dd:hover > .nav-link::after,
+.has-dd:focus-within > .nav-link::after,
+.has-dd.open > .nav-link::after { transform: scaleX(1); }
+/* while pointing at another item, the current page's underline steps aside */
+.main-nav:hover .nav-link.active:not(:hover)::after { transform: scaleX(0); }
+.nav-link .chev { width: 13px; height: 13px; opacity: .8; transition: transform .2s; }
+.has-dd:hover .chev, .has-dd:focus-within .chev, .has-dd.open .chev { transform: rotate(180deg); }
+
+.has-dd { position: relative; }
+.dd {
+  position: absolute; left: 50%; top: 100%; min-width: 420px; margin-top: 14px; padding: 8px;
+  background: rgba(14, 10, 42, .96); backdrop-filter: blur(14px);
+  border: 1px solid var(--line); border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .55), 0 0 34px rgba(110, 70, 255, .28);
+  opacity: 0; visibility: hidden; transform: translate(-50%, 6px);
+  transition: opacity .2s ease, transform .2s ease, visibility .2s;
+}
+/* invisible bridge so the menu doesn't close while the cursor crosses the gap */
+.dd::before { content: ""; position: absolute; left: 0; right: 0; top: -16px; height: 16px; }
+.has-dd:hover > .dd, .has-dd:focus-within > .dd, .has-dd.open > .dd { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.dd a {
+  display: flex; align-items: center; gap: 14px; padding: 12px 14px; border-radius: 10px;
+  font-size: 14.5px; line-height: 1.3; color: #f1edff; transition: background .15s;
+}
+.dd a:hover, .dd a:focus-visible { background: rgba(130, 90, 255, .26); outline: none; }
+.dd b { font-size: 12px; font-weight: 500; letter-spacing: .15em; color: #cba8ff; flex: none; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -158,25 +188,6 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
   50% { translate: 0 -12px; }
 }
 
-/* ---------- Services ---------- */
-.services { padding: 110px clamp(20px, 6.5vw, 76px); background: linear-gradient(180deg, var(--bg), var(--bg-2)); }
-.services h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; letter-spacing: -.01em; margin-bottom: 36px; }
-.cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; counter-reset: svc; }
-.card {
-  padding: 28px 24px; border-radius: 18px;
-  background: linear-gradient(160deg, rgba(120, 90, 255, .14), rgba(60, 30, 170, .06));
-  border: 1px solid var(--line);
-  transition: transform .25s, border-color .25s, box-shadow .25s;
-}
-.card:hover { transform: translateY(-4px); border-color: rgba(170, 140, 255, .6); box-shadow: 0 10px 40px rgba(110, 70, 255, .25); }
-.card { counter-increment: svc; }
-.card::before {
-  content: "0" counter(svc); display: block; margin-bottom: 14px;
-  font-size: 13px; letter-spacing: .2em; color: #cba8ff; font-weight: 500;
-}
-.card h3 { font-size: clamp(18px, 1.7vw, 22px); font-weight: 600; margin-bottom: 10px; line-height: 1.25; }
-.card p { color: var(--muted); font-size: 15px; font-weight: 300; }
-
 /* ---------- Footer ---------- */
 .site-footer {
   padding: 34px clamp(20px, 5vw, 56px) 28px;
@@ -209,7 +220,6 @@ html[lang="hy"] .btn-cta, html[lang="ru"] .btn-cta { padding: 13px 18px; font-si
 }
 @media (max-width: 560px) {
   .brand svg { width: 118px; }
-  .cards { grid-template-columns: 1fr; }
   .foot-bottom { flex-direction: column; }
 }
 @media (prefers-reduced-motion: reduce) {

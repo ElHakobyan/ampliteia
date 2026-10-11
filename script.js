@@ -50,22 +50,35 @@
 
   apply(detect());
 
-  // ---------- Active nav link on scroll ----------
-  var links = document.querySelectorAll(".main-nav a");
-  var sections = [
-    { id: "top", el: document.getElementById("top") },
-    { id: "services", el: document.getElementById("services") },
-    { id: "contacts", el: document.getElementById("contacts") }
-  ];
+  // ---------- Services dropdown (touch / click support) ----------
+  var svcItem = document.getElementById("svcItem");
+  var svcLink = document.getElementById("svcLink");
+  svcLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    var open = svcItem.classList.toggle("open");
+    svcLink.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("click", function (e) {
+    if (!svcItem.contains(e.target)) {
+      svcItem.classList.remove("open");
+      svcLink.setAttribute("aria-expanded", "false");
+    }
+  });
+  svcItem.querySelectorAll(".dd a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      if (a.getAttribute("href") === "#") e.preventDefault();
+      svcItem.classList.remove("open");
+    });
+  });
+
+  // ---------- Active nav link on scroll (Home / Contacts) ----------
+  var homeLink = document.querySelector('.main-nav a[href="#top"]');
+  var contactsLink = document.querySelector('.main-nav a[href="#contacts"]');
+  var footer = document.getElementById("contacts");
   function onScroll() {
-    var y = window.scrollY + window.innerHeight * 0.35;
-    var current = "top";
-    sections.forEach(function (s) {
-      if (s.el && s.el.offsetTop <= y && s.id !== "top") current = s.id;
-    });
-    links.forEach(function (a) {
-      a.classList.toggle("active", a.getAttribute("href") === "#" + current);
-    });
+    var atFooter = footer && window.scrollY + window.innerHeight * 0.6 >= footer.offsetTop;
+    homeLink.classList.toggle("active", !atFooter);
+    contactsLink.classList.toggle("active", !!atFooter);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();

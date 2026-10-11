@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -35,9 +35,22 @@
   </a>
 
   <nav class="main-nav" aria-label="Main">
-    <a href="#top" class="active" data-i18n="nav.home">Home</a>
-    <a href="#services" data-i18n="nav.services">Services</a>
-    <a href="#contacts" data-i18n="nav.contacts">Contacts</a>
+    <a href="#top" class="nav-link active" data-i18n="nav.home">Home</a>
+
+    <div class="nav-item has-dd" id="svcItem">
+      <a href="#" class="nav-link" id="svcLink" aria-haspopup="true" aria-expanded="false">
+        <span data-i18n="nav.services">Services</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <ul class="dd" role="menu">
+        <li role="none"><a role="menuitem" href="#"><b>01</b><span data-i18n="svc.t1">AI Readiness &amp; Data Foundations</span></a></li>
+        <li role="none"><a role="menuitem" href="#"><b>02</b><span data-i18n="svc.t2">AI Agents for Back-Office Operations</span></a></li>
+        <li role="none"><a role="menuitem" href="#"><b>03</b><span data-i18n="svc.t3">Legacy Systems Modernization with AI</span></a></li>
+        <li role="none"><a role="menuitem" href="#"><b>04</b><span data-i18n="svc.t4">AI Governance &amp; EU AI Act Compliance</span></a></li>
+      </ul>
+    </div>
+
+    <a href="#contacts" class="nav-link" data-i18n="nav.contacts">Contacts</a>
   </nav>
 
   <div class="header-actions">
@@ -103,27 +116,6 @@
     </div>
   </section>
 
-  <section class="services" id="services">
-    <h2 data-i18n="nav.services">Services</h2>
-    <div class="cards">
-      <article class="card">
-        <h3 data-i18n="svc.t1">T1</h3>
-        <p data-i18n="svc.d1">D1</p>
-      </article>
-      <article class="card">
-        <h3 data-i18n="svc.t2">T2</h3>
-        <p data-i18n="svc.d2">D2</p>
-      </article>
-      <article class="card">
-        <h3 data-i18n="svc.t3">T3</h3>
-        <p data-i18n="svc.d3">D3</p>
-      </article>
-      <article class="card">
-        <h3 data-i18n="svc.t4">T4</h3>
-        <p data-i18n="svc.d4">D4</p>
-      </article>
-    </div>
-  </section>
 </main>
 
 <footer class="site-footer" id="contacts">
@@ -152,7 +144,7 @@
   </div>
 </footer>
 
-<script src="i18n.js?v=3"></script>
-<script src="script.js?v=3"></script>
+<script src="i18n.js?v=4"></script>
+<script src="script.js?v=4"></script>
 </body>
 </html>
