@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ampliteia — Ideas Amplified</title>
+  <meta name="description" content="AI automation that helps businesses grow faster.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Armenian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Logo symbol (reused in header, hero card and footer) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#b9a2ff"/>
+    </linearGradient>
+    <symbol id="logo" viewBox="0 0 220 150">
+      <path d="M62 14 C20 22 8 74 36 104 C16 70 28 30 62 14 Z" fill="url(#logoGrad)"/>
+      <path d="M62 14 C40 30 36 62 52 84 C46 60 52 34 62 14 Z" fill="#d9ccff" opacity=".55"/>
+      <text x="58" y="88" font-family="Inter, sans-serif" font-weight="200" font-size="84" fill="url(#logoGrad)" letter-spacing="-4">AM</text>
+      <text x="110" y="116" text-anchor="middle" font-family="Inter, sans-serif" font-weight="300" font-size="19" fill="#e9e2ff" letter-spacing="7.5">AMPLITEIA</text>
+      <text x="110" y="134" text-anchor="middle" font-family="Inter, sans-serif" font-weight="400" font-size="7.5" fill="#bfb3ee" letter-spacing="3.6">IDEAS AMPLIFIED</text>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="site-header" id="top">
+  <a class="brand" href="#top" aria-label="Ampliteia">
+    <svg viewBox="0 0 220 150"><use href="#logo"/></svg>
+  </a>
+
+  <nav class="main-nav" aria-label="Main">
+    <a href="#top" class="active" data-i18n="nav.home">Home</a>
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#contacts" data-i18n="nav.contacts">Contacts</a>
+  </nav>
+
+  <div class="header-actions">
+    <a class="btn-cta" href="#contacts">
+      <span data-i18n="cta">Get a Consultation</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <div class="lang" id="lang">
+      <button class="lang-btn" id="langBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+        <img id="langFlag" src="assets/flags/en.svg" alt="" width="22" height="16">
+        <span id="langCode">EN</span>
+        <svg class="chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <ul class="lang-menu" id="langMenu" role="listbox" hidden>
+        <li role="option" data-lang="ru"><img src="assets/flags/ru.svg" alt="" width="22" height="16"><span>Русский</span></li>
+        <li role="option" data-lang="hy"><img src="assets/flags/am.svg" alt="" width="22" height="16"><span>Հայերեն</span></li>
+        <li role="option" data-lang="en"><img src="assets/flags/en.svg" alt="" width="22" height="16"><span>English</span></li>
+        <li role="option" data-lang="es"><img src="assets/flags/es.svg" alt="" width="22" height="16"><span>Español</span></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="bg" aria-hidden="true">
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+      <canvas id="fx"></canvas>
+      <div class="planet"></div>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">AI Solutions for Business</p>
+      <h1>
+        <span data-i18n="hero.title1">Turn Ideas Into</span>
+        <span class="grad" data-i18n="hero.title2">Real Results</span>
+      </h1>
+      <p class="lead" data-i18n="hero.lead">AI automation that helps businesses grow faster.</p>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="tile t-automate">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <span data-i18n="tile.automate">Automate</span>
+      </div>
+      <div class="tile t-analyze">
+        <svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V5M16 20v-8M22 20H2"/></svg>
+        <span data-i18n="tile.analyze">Analyze</span>
+      </div>
+      <div class="tile t-scale">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        <span data-i18n="tile.scale">Scale</span>
+      </div>
+      <div class="tile t-grow">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg>
+        <span data-i18n="tile.grow">Grow</span>
+      </div>
+      <div class="core">
+        <svg viewBox="0 0 220 150"><use href="#logo"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 data-i18n="nav.services">Services</h2>
+    <div class="cards">
+      <article class="card">
+        <h3 data-i18n="tile.automate">Automate</h3>
+        <p data-i18n="svc.automate">Remove repetitive work with AI-driven workflows.</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="tile.analyze">Analyze</h3>
+        <p data-i18n="svc.analyze">Turn your data into clear, actionable insights.</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="tile.scale">Scale</h3>
+        <p data-i18n="svc.scale">Handle more customers and projects without more overhead.</p>
+      </article>
+      <article class="card">
+        <h3 data-i18n="tile.grow">Grow</h3>
+        <p data-i18n="svc.grow">Measurable results that move your business forward.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer" id="contacts">
+  <div class="foot-row">
+    <a class="brand foot-brand" href="#top" aria-label="Ampliteia">
+      <svg viewBox="0 0 220 150"><use href="#logo"/></svg>
+    </a>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#" data-i18n="foot.about">About</a>
+      <a href="#contacts" data-i18n="nav.contacts">Contacts</a>
+    </nav>
+    <div class="social">
+      <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="currentColor"/><path d="M8 10.5V17M8 7.5v.1M11.5 17v-3.6c0-1.6 1-2.9 2.5-2.9s2 1 2 2.6V17M11.5 10.5V17" stroke="#0a0820" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4" fill="currentColor"/><path d="M10 9.2v5.6l5-2.8z" fill="#0a0820"/></svg></a>
+      <a href="#" aria-label="Email"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+  <div class="foot-line"></div>
+  <div class="foot-bottom">
+    <p><span data-i18n="foot.rights">© 2026 Ampliteia. All rights reserved.</span></p>
+    <p class="legal">
+      <a href="#" data-i18n="foot.privacy">Privacy Policy</a>
+      <i></i>
+      <a href="#" data-i18n="foot.terms">Terms of Service</a>
+    </p>
+  </div>
+</footer>
+
+<script src="i18n.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
