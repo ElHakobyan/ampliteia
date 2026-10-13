@@ -1,0 +1,13 @@
+name = "ampliteia-booking-agent"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# Comma-separated list of websites allowed to use the chat.
+ALLOWED_ORIGINS = "https://elhakobyan.github.io"
+MODEL = "claude-sonnet-5-5"
+
+# Secrets (set with `npx wrangler secret put NAME`, never commit them):
+#   ANTHROPIC_API_KEY   required
+#   NOTIFY_WEBHOOK      optional: Slack/Make/Zapier URL that receives each request
+#   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID   optional: send requests to a Telegram chat

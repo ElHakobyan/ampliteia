@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Demo: AI booking assistant for tour companies | Ampliteia</title>
+<style>
+  :root{--bg:#0b0716;--card:#150f29;--line:rgba(255,255,255,.1);--text:#f2eefc;--mute:#a79fc2;--accent:#8b5cf6;--accent2:#c084fc}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,rgba(139,92,246,.25),transparent),var(--bg);color:var(--text);
+    font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.55}
+  .wrap{max-width:980px;margin:0 auto;padding:0 20px}
+  .banner{background:rgba(139,92,246,.18);border-bottom:1px solid rgba(139,92,246,.45);font-size:13px;padding:10px 20px;text-align:center}
+  .banner a{color:var(--accent2)}
+  header{padding:22px 0;display:flex;justify-content:space-between;align-items:center}
+  .logo{font-weight:700;font-size:20px;letter-spacing:.02em}
+  header span{color:var(--mute);font-size:14px}
+  .hero{padding:50px 0 30px}
+  .hero h1{font-size:clamp(32px,6vw,54px);line-height:1.1;margin:0 0 14px}
+  .hero p{color:var(--mute);font-size:18px;max-width:620px}
+  .hint{display:inline-block;margin-top:12px;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;color:var(--accent2)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:30px 0 60px}
+  .tour{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .tour h3{margin:0 0 6px}
+  .tour p{margin:0;color:var(--mute);font-size:14px}
+  .tour b{display:block;margin-top:12px;color:var(--accent2)}
+  .how{border-top:1px solid var(--line);padding:30px 0 80px;color:var(--mute);font-size:15px}
+  .how h2{color:var(--text);font-size:20px}
+</style>
+</head>
+<body>
+<div class="banner">Demo by <a href="../">Ampliteia</a>. "Sunrise Desert Tours" is a fictional company; tours and prices are examples.</div>
+<div class="wrap">
+  <header><div class="logo">Sunrise Desert Tours</div><span>Dubai · Fictional demo</span></header>
+  <section class="hero">
+    <h1>Book your Dubai adventure</h1>
+    <p>Desert safaris, city tours, Abu Dhabi day trips and dhow cruises. Ask our assistant anything, day or night.</p>
+    <span class="hint">Click the chat button at the bottom right and try: "How much is the desert safari?"</span>
+  </section>
+  <section class="grid">
+    <div class="tour"><h3>Desert Safari</h3><p>Dune driving, camel ride, BBQ dinner and show.</p><b>from AED 150</b></div>
+    <div class="tour"><h3>Dubai City Tour</h3><p>Burj Khalifa, Dubai Frame and the old town.</p><b>from AED 120</b></div>
+    <div class="tour"><h3>Abu Dhabi Day Trip</h3><p>Grand Mosque and a full city tour.</p><b>from AED 180</b></div>
+    <div class="tour"><h3>Dhow Cruise Dinner</h3><p>Marina cruise with a buffet dinner.</p><b>from AED 130</b></div>
+  </section>
+  <section class="how">
+    <h2>What this demo shows</h2>
+    <p>The assistant answers common questions at any hour, collects the date, number of guests, budget and contact, and creates a request card for the team. A manager confirms price and availability. This demo runs a simple script; the live version uses an AI model that only answers from the company's approved information.</p>
+  </section>
+</div>
+<script src="../assets/chat/widget.js?v=1" defer></script>
+</body>
+</html>
